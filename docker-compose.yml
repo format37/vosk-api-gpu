@@ -19,6 +19,5 @@ services:
             count: 1
             capabilities: [gpu]
 
-networks:
-  ai:
-    driver: bridge
+    ports:
+      - 10.2.5.212:2700:2700

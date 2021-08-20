@@ -33,6 +33,12 @@ Then run it with required args depending on your platform, e.g.:
 ```
 
 You can check the available NVIDIA base image tags [here](https://ngc.nvidia.com/catalog/containers/nvidia:l4t-base) and [here](https://ngc.nvidia.com/catalog/containers/nvidia:l4t-ml). 
+   
+update ip to your host's ip in docker-compose.yml
+```
+ports:
+      - 10.2.5.212:2700:2700
+```
 
 To build images for PC, use the following script:
 

@@ -21,7 +21,7 @@ FROM sskorol/vosk-api:$TAG
 Clone sources and check a build file help:
 
 ```shell script
-git clone https://github.com/sskorol/vosk-api-gpu.git
+git clone https://github.com/format37/vosk-api-gpu.git
 cd vosk-api-gpu
 ./build.sh -h
 ```
@@ -31,6 +31,11 @@ Then run it with required args depending on your platform, e.g.:
 ```shell script
 ./build.sh -m nano -i ml -t 0.3.27
 ```
+   
+Pc (check latest version at https://hub.docker.com/r/sskorol/vosk-api/tags?page=1&ordering=last_updated):
+```
+docker pull sskorol/vosk-api:0.3.27-pc
+```
 
 You can check the available NVIDIA base image tags [here](https://ngc.nvidia.com/catalog/containers/nvidia:l4t-base) and [here](https://ngc.nvidia.com/catalog/containers/nvidia:l4t-ml). 
    
@@ -38,6 +43,13 @@ update ip to your host's ip in docker-compose.yml
 ```
 ports:
       - 10.2.5.212:2700:2700
+```
+
+Note that you have to download and extract a required [model](https://alphacephei.com/vosk/models) into `./model` folder.
+```
+wget https://alphacephei.com/vosk/models/vosk-model-ru-0.10.zip
+unzip vosk-model-ru-0.10.zip
+mv vosk-model-ru-0.10 model
 ```
 
 To build images for PC, use the following script:
@@ -53,8 +65,6 @@ To start a newly built container, run the following command:
 ```shell script
 docker-compose up -d
 ```
-
-Note that you have to download and extract a required [model](https://alphacephei.com/vosk/models) into `./model` folder.
 
 Also make sure you have at least Docker (20.10.6) and Compose (1.29.1) versions.
 
